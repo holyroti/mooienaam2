@@ -39,7 +39,7 @@ public class WereldLaderImpl implements WereldLader {
             //
             // TODO Laad de wereld!
             //
-            fis = new FileInputStream("C:\\Users\\ROHIT\\Desktop\\gameoftrades-student-kit-master\\src\\main\\java\\io\\gameoftrades\\studentNN\\westeros-kaart.txt");
+            fis = new FileInputStream(resource);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(WereldLaderImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -84,11 +84,11 @@ public class WereldLaderImpl implements WereldLader {
                     if(count < hoogte+2+aantalSteden){
                         steden = s.split(",");
                        // System.out.println(steden[2]);
-                        for(int i = 0; i < steden.length; i++){
+                        
                             Coordinaat coord = Coordinaat.op(Integer.parseInt(steden[0]), Integer.parseInt(steden[1]));
                             Stad stad = new Stad(coord, steden[2]);
                             stedenList.add(stad);
-                        }
+                        
                     }
                     if(count > hoogte+1+aantalSteden){
                         if(count == hoogte+2+aantalSteden){
