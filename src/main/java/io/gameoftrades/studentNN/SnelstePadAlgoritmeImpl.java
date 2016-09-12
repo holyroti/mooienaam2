@@ -75,9 +75,10 @@ public class SnelstePadAlgoritmeImpl implements SnelstePadAlgoritme{
                 double newMovementCostToNeighbour = map.get(current).getgCost() + current.getCoordinaat().afstandTot(neighbour.getCoordinaat()) + neighbour.getTerreinType().getBewegingspunten();
                 
                 if(newMovementCostToNeighbour < map.get(neighbour).getgCost() || !open.contains(neighbour)){
-                    map.get(neighbour).setgCost(newMovementCostToNeighbour);
-                    map.get(neighbour).sethCost(neighbour.getCoordinaat().afstandTot(end));
-                    map.get(neighbour).setParent(current);
+                    Cost neighbourCost = map.get(neighbour);
+                    neighbourCost.setgCost(newMovementCostToNeighbour);
+                    neighbourCost.sethCost(neighbour.getCoordinaat().afstandTot(end));
+                    neighbourCost.setParent(current);
                     if(!open.contains(neighbour))
                         open.add(neighbour);
                 }

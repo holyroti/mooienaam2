@@ -1,5 +1,8 @@
 package io.gameoftrades.studentNN;
 
+import io.gameoftrades.debug.AsciiArtDebugger;
+import io.gameoftrades.debug.Debugger;
+import io.gameoftrades.debug.DummyDebugger;
 import io.gameoftrades.ui.*;
 import io.gameoftrades.studentNN.HandelaarImpl;
 
@@ -12,6 +15,7 @@ public class StudentUI {
 
 	public static void main(String[] args) {
 		MainGui.toon(new HandelaarImpl(), "/home/mrctje/NetBeansProjects/mooienaam2/src/test/resources/kaarten/westeros-kaart.txt");
+                
 	}
 	
 }
