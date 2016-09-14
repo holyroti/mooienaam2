@@ -11,11 +11,7 @@ import io.gameoftrades.model.kaart.Richting;
 import io.gameoftrades.model.kaart.Terrein;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.ListIterator;
 
 /**
  *
@@ -27,7 +23,6 @@ public class PadImpl implements Pad{
     
     public PadImpl(List<Terrein> terreinen){
         this.terreinen = terreinen;
-        System.out.println("Size in cons" + terreinen.size());
     }
 
     @Override
@@ -42,8 +37,7 @@ public class PadImpl implements Pad{
     @Override
     public Richting[] getBewegingen() {
         ArrayList<Richting> richtingen = new ArrayList<>();
-        for (int i = 0; i < terreinen.size(); i++) {
-            if(i < terreinen.size() - 1)
+        for (int i = 0; i < terreinen.size() -1; i++) {
               richtingen.add(Richting.tussen(terreinen.get(i).getCoordinaat(), terreinen.get(i+1).getCoordinaat()));
         }
         return (Richting[])richtingen.toArray(new Richting[richtingen.size()]);

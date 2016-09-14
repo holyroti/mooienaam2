@@ -63,7 +63,7 @@ public class SnelstePadAlgoritmeImpl implements SnelstePadAlgoritme{
                 AsciiArtDebugger debug = new AsciiArtDebugger();
                 PadImpl pad = new PadImpl(track(startNode, endNode));
                 
-                debug.debugPad(kaart, start, pad);
+                //debug.debugPad(kaart, start, pad);
                 return pad;
             }
             
