@@ -40,10 +40,6 @@ public class PadImpl implements Pad{
     @Override
     public Richting[] getBewegingen() {
         ArrayList<Richting> richtingen = new ArrayList<>();
-//        for (int i = 0; i < terreinen.size() -1; i++) {
-//              richtingen.add(Richting.tussen(terreinen.get(i).getCoordinaat(), terreinen.get(i+1).getCoordinaat()));
-//        }
-//        return richtingen.toArray(new Richting[richtingen.size()]);
         return getBeweging2(terreinen, richtingen);
     }
 
