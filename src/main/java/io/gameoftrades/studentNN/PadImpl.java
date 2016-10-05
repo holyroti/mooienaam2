@@ -43,7 +43,6 @@ public class PadImpl implements Pad{
         return getBeweging2(terreinen, richtingen);
     }
 
-    //AAAAAAAAAAAAAAAAAAAaa
     private Richting[] getBeweging2(List<Terrein> t, ArrayList<Richting> richting) {
         if (terreinen.size() == richting.size()) return richting.toArray(new Richting[richting.size()]);
         else {
