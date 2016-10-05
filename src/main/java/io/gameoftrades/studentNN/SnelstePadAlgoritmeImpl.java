@@ -61,9 +61,9 @@ public class SnelstePadAlgoritmeImpl implements SnelstePadAlgoritme{
             if(current.equals(endNode)){
                 
                 AsciiArtDebugger debug = new AsciiArtDebugger();
-                PadImpl pad = new PadImpl(track(startNode, endNode));
-                
-                //debug.debugPad(kaart, start, pad);
+
+                Pad pad = new PadImpl(track(startNode, endNode));
+               // debug.debugPad(kaart, start, pad);
                 return pad;
             }
             

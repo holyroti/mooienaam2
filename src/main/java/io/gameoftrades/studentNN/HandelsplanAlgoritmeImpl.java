@@ -34,7 +34,7 @@ public class HandelsplanAlgoritmeImpl implements HandelsplanAlgoritme{
         ArrayList<Integer> winstList = new ArrayList<>();
         
         for(Handel handel: wereld.getMarkt().getHandel()){
-            if(handel.getHandelType().equals(HandelType.BIEDT))
+//            if(handel.getHandelType().equals(HandelType.BIEDT))
                 
                 
         }

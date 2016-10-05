@@ -26,23 +26,36 @@ public class PadImpl implements Pad{
     }
 
     @Override
-    public int getTotaleTijd() {
-        int cost = 0;
-        for(Terrein terrein: terreinen){
-            cost += terrein.getTerreinType().getBewegingspunten();
+    public int getTotaleTijd() { return calculateTotalTIme(terreinen, 0); }
+
+    private int calculateTotalTIme(List<Terrein> t, int cost) {
+        if(t.size() == 0) return cost;
+        else {
+            Terrein ter = t.get(0);
+            t.remove(0);
+            return calculateTotalTIme(t, cost + ter.getTerreinType().getBewegingspunten());
         }
-        return cost;
     }
 
     @Override
     public Richting[] getBewegingen() {
         ArrayList<Richting> richtingen = new ArrayList<>();
-        for (int i = 0; i < terreinen.size() -1; i++) {
-              richtingen.add(Richting.tussen(terreinen.get(i).getCoordinaat(), terreinen.get(i+1).getCoordinaat()));
+//        for (int i = 0; i < terreinen.size() -1; i++) {
+//              richtingen.add(Richting.tussen(terreinen.get(i).getCoordinaat(), terreinen.get(i+1).getCoordinaat()));
+//        }
+//        return richtingen.toArray(new Richting[richtingen.size()]);
+        return getBeweging2(terreinen, richtingen);
+    }
+
+    private Richting[] getBeweging2(List<Terrein> t, ArrayList<Richting> richting) {
+        if (terreinen.size() == richting.size()) return richting.toArray(new Richting[richting.size()]);
+        else {
+            Terrein ter = t.get(0);
+            Terrein ter2 = t.get(1);
+            t.remove(0);
+            richting.add(Richting.tussen(ter.getCoordinaat(), ter2.getCoordinaat()));
+            return getBeweging2(t, richting);
         }
-        return (Richting[])richtingen.toArray(new Richting[richtingen.size()]);
-        
-        
     }
 
     @Override

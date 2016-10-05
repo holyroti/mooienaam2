@@ -14,7 +14,7 @@ import io.gameoftrades.studentNN.HandelaarImpl;
 public class StudentUI {
 
 	public static void main(String[] args) {
-		MainGui.toon(new HandelaarImpl(), "/home/mrctje/NetBeansProjects/mooienaam2/src/test/resources/kaarten/westeros-kaart.txt");
+		MainGui.toon(new HandelaarImpl(), "westeros-kaart.txt");
                 
 	}
 	

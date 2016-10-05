@@ -5,6 +5,7 @@
  */
 package io.gameoftrades.studentNN;
 
+import io.gameoftrades.debug.AsciiArtDebugger;
 import io.gameoftrades.model.algoritme.StedenTourAlgoritme;
 import io.gameoftrades.model.kaart.Kaart;
 import io.gameoftrades.model.kaart.Stad;
@@ -37,8 +38,9 @@ public class StedenTourAlgoritmeImpl implements StedenTourAlgoritme{
             }
         }
         
-        
+        int count = 0;
         while(temp > 1){
+            count++;
             int pos = (int) (stedenList.size() * Math.random());
             int pos2 = (int) (stedenList.size() * Math.random());
             
@@ -61,13 +63,14 @@ public class StedenTourAlgoritmeImpl implements StedenTourAlgoritme{
             
             temp *= 1-cdRate;
         }
-//        AsciiArtDebugger debug = new AsciiArtDebugger();
-//        debug.debugSteden(kaart, stedenList);
-//        debug.debugSteden(kaart, bestList);
+        AsciiArtDebugger debug = new AsciiArtDebugger();
+        debug.debugSteden(kaart, stedenList);
+        debug.debugSteden(kaart, bestList);
         long endTime = System.nanoTime();
         System.out.println("Elapsed time: " + ((endTime-startTime) / 1000000) + "ms");
         System.out.println("First solution: " + getDistance(stedenList, kaart));
         System.out.println("Best solution: " + getDistance(bestList, kaart));
+        System.out.println("Calculated " + count + " tours which contains " + stedenList.size() + " cities");
         return bestList;
     }
 
