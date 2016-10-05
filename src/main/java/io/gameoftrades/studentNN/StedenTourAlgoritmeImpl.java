@@ -26,7 +26,7 @@ public class StedenTourAlgoritmeImpl implements StedenTourAlgoritme{
         
         double temp = 10000;
         
-        double cdRate = .3; //Default 0.003 (about 50s for westoros)
+        double cdRate = .1; //Default 0.003 (about 50s for westoros)
         ArrayList<Stad> stedenList = new ArrayList<Stad>(list.size());
         ArrayList<Stad> currentList = new ArrayList<Stad>(list.size());
         ArrayList<Stad> bestList = new ArrayList<Stad>(list.size());
@@ -80,7 +80,7 @@ public class StedenTourAlgoritmeImpl implements StedenTourAlgoritme{
     }
     
     private int getDistance(List<Stad> list, Kaart kaart){
-        SnelstePadAlgoritmeImpl padAlg = new SnelstePadAlgoritmeImpl();
+        SnelstePadAlgoritmeImpl padAlg = new SnelstePadAlgoritmeImpl(false);
         int totalTime = 0;
         for(int i = 0; i < list.size() - 1; i++){
                 totalTime += padAlg.bereken(kaart, list.get(i).getCoordinaat(), list.get(i+1).getCoordinaat()).getTotaleTijd();

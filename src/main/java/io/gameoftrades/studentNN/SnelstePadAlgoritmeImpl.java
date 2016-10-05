@@ -26,10 +26,13 @@ import java.util.Map;
  */
 public class SnelstePadAlgoritmeImpl implements SnelstePadAlgoritme{
     private final Map<Terrein, Cost> map;
+    boolean calculateWithInterest;
 
-    public SnelstePadAlgoritmeImpl() {
+    public SnelstePadAlgoritmeImpl(boolean calculateInterest) {
         this.map = new HashMap<>();
+        calculateWithInterest = calculateInterest;
     }
+
     
     @Override
     public Pad bereken(Kaart kaart, Coordinaat start, Coordinaat end) {
@@ -86,7 +89,7 @@ public class SnelstePadAlgoritmeImpl implements SnelstePadAlgoritme{
         }
         return null;
     }
-    
+
     private List<Terrein> track(Terrein start, Terrein end){
         List<Terrein> pad = new ArrayList<>();
         Terrein current = end;
@@ -97,7 +100,7 @@ public class SnelstePadAlgoritmeImpl implements SnelstePadAlgoritme{
         Collections.reverse(pad);
         return pad;
     }
-    
+
     @Override
     public String toString() {
         return "A* Pathfinding"; //To change body of generated methods, choose Tools | Templates.

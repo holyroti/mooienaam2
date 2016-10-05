@@ -32,11 +32,16 @@ public class HandelsplanAlgoritmeImpl implements HandelsplanAlgoritme{
         Stad beginStad = hp.getStad();
         
         ArrayList<Integer> winstList = new ArrayList<>();
-        
+
+
+        /*
+        * Zoek en koop in meest winstgevende product bij start in nabije omgeving (1/10e tijd)
+        * Travel naar stad voor verkooop
+        * Repeat
+         */
         for(Handel handel: wereld.getMarkt().getHandel()){
 //            if(handel.getHandelType().equals(HandelType.BIEDT))
-                
-                
+
         }
 //        for(Handel handel: wereld.getMarkt().getHandel()){
 //            System.out.println(handel.getPrijs());
